@@ -1,0 +1,250 @@
+
+Skip to content
+Using Gmail with screen readers
+7 of 234
+Fwd: git
+Inbox
+	x
+santhosh pasam <santhosh07p@gmail.com>
+	
+AttachmentsJun 17, 2019, 6:28 PM
+	
+to me
+
+
+
+
+
+Attachments area
+	
+	
+	
+
+﻿VERSION CONTROLLING:
+Process of preserving the diff versions of code.
+
+GIT:
+It is a software
+
+GITHUB:
+Centralised repo(data modifications through git.
+
+BIT BUCKET IS ALSO SAME.
+
+# git init                                             ------> it is used to initilize the git repository
+# git config --global user.name "user_name"            ------> it is used to set the user name 															   
+# git config --global user.email "user_mail_id>	 	   ------> it is used to set the user mail_id
+# git config --list 
+
+
+# touch                                                ------> it is used to create a empty files
+# vi 							------> create files
+
+WORKING REPO TO STAGGING
+------------------------
+Working directory is the folder where the developer is creating his code
+
+Stagging area is the intermediate buffer zone
+where the files are initially placed.The files present in stagging area are called tracked files
+
+	 												   
+# git add <file_name>                                  ------> it is used to send the file from workspace to stagging area
+                                                               (note--> at a time will send only one file)
+# git add <file_name_1> <file_name_2>....<file_name_n> ------> it is used to send the file from workspace to stagging area
+                                                               (note--> at a time will send multiple files)
+# git add .                                            ------> it is used to send the files from workspace to status area(note--> at a time send all files)
+
+STAGGING TO WORKING REPO
+------------------------
+# git reset head <file_name>                           ------> it is used to fetch the files from stagging area to workspace area.
+# git reset head filename 				-----> take back from stagging to working repo.
+
+MODIFIED FILE:
+-------------
+# Using vi editor -- edit the committed file --then shows in stagging area as modified file not a untracked file
+# git commit -am "new message" 
+
+# git status                                           ------> it is used to display the detail status about our work like how many files are 
+                                                               in untracted area,stagging area..etc
+                                   			------> it displays list of users
+STAGGING TO LOCAL REPO:
+----------------------
+
+
+# git commit -m "commit_name"                          ------> it is used to send the files from stagging area to Local repository
+                                                               (note--> at a time will send all files under singal commit_name)
+# git commit -m "commit_name" <file_name>              ------> it is used to send the files from stagging area to Local repository(note--> at a time will send only one files)	
+# git commit -m "commit_name" <file_name_1> <file_name_2> file_name_n> ----> it is used to send the files from stagging area to Local repository
+# git show <commit_id>                                 ------> it will generate the files under commit, i.e that particular commit_id how many files are present.
+# git log -2 or # git log -n 2                         ------> it will show latest two commits only
+# git log -4 or # git log -n 4                         ------> it will show latest four commits only
+# git log -1 --oneline or # git log -n 1 --oneline     ------> it will show latest one commits only	but single like formate.
+# git log --author=<author_name>                       ------> it will display author commit messages {if we do any collobaration for example santhosh sai krishore working on same git repo ..if we apply this command it shows authors who are working on this git repo.}
+
+# git log --since=yyyy-mm-dd                           ------> the logs will display since from 25th july to 27   
+  ex--> # git log --since=2018-07-25
+# git log --until=yyyy-mm-dd                           ------> the logs will display since from 25th july to 27   
+  ex--> # git log --until=2018-07-25                   ------> the logs will display since from 25th july to till date
+# git log                                              ------> it is used to see the commit status like list of commits
+                                                               (it includes auothe name & autoher mail id ...etc)
+# git log --oneline                                    ------> it is also to see the commit list but it will show single line formate
+ 
+
+LOCAL REPO TO STAGGING :
+------------------------
+
+# git reset --soft <commit_id>                         ------> it is used to fetch the files from local repository to stagging area .{ you cant pull back the first commit]
+                                                               (note--> take the before commit_id i.e 2nd commit_id from starting onwords)
+
+LOCAL REPO TO WORKING AREA:
+---------------------------
+# git reset --mixed <commit_id>                        ------> it is used to fetch the files from local repository to workspace area 
+                                                               (note--> take the before commit_id i.e 2nd commit_id from starting onwords)
+TO CHANGE THE COMMIT NAME AND ID:
+---------------------------------
+# git commit --amend -m "new name"			------> to change the latest commit name only 
+
+TO CHANGE THE OLDEST COMMIT:
+---------------------------
+At the time of cration repo seleect the readme. file then it shows as first commit with the help readme. file's commit we can alter the first commit.
+
+
+
+BRANCHING:
+---------
+# git branch <branch_name>                             ------> it is used to create a new branch
+# git checkout <branch_name>                           ------> to move into a branch
+# git checkout -b <branch_name>                        ------> to create a branch and move into it
+# git branch                                           ------> it is used to display list of branches
+# git branch -a                                        ------> to see the list of all branchs(local as well as remote repository)
+
+To MERGE THE BRANCH
+-------------------
+# git merge <branch_name>                              ------> it is used to merge the files from one branch to another branch
+
+WITHOUT MERGING THE BRANCH PUSHING INTO GIT HUB(CENTRALIZED REPO)
+-----------------------------------------------------------------
+# git push <path of repository> <child branch_name>    ------> it is used to send the files from child branch to remote repository
+
+TO DELETE THE BRANCH IN GITHUB
+------------------------------
+# git push origin -d <branch_name>                     ------> it is used to delete the branch which are available in remote repository
+
+TO DELETE THE BRANCH IN LOCAL REPO
+----------------------------------
+# git branch -d <branch_name>                          ------> it is used to delete the branch in local repository( this is soft delete)
+# git branch -D <branch_name>                          ------> it is used to delete the branch in local repository( this is hard delete)
+
+REBASE:
+------
+FAST FORWARD MERGING --CREATING A LINEAR COMMIT HISTORY
+# git rebase master
+# git merge branchname
+                                 
+TO RESOLVE THE COLFLICTS FOR DEVLOPERS WHILE MERGING THE BRANCHES:
+------------------------------------------------------------------
+
+Two different branches master,child are both have same file and try to merge the child with master.
+in two way it can be solve (auto merging conflict and manual colflict)
+shows a conflict and which file has problem too (i.e MASTER|MERGING BRANCH),devops enigeer will report to concern developer team
+to delete the file content.
+To skip this 
+git merge --abort -----------> skip the issue temperarly.
+ 
+COLLABRATION ISSUE:
+------------------
+GO top setting -- collabrations -- by user id -- get email notification
+
+ONE REPO BATCH24 -- collabrated with new developer --new dev clone the url if batch24 
+--so now old devloper and old commit and push their codes -- who did 1st commit will have no problem
+-- who did second push thier problem -- bocz repo geets changed by 1st push 
+-- so who got error need to again clone url or
+--- by pull the batch24 url repo.
+
+DEVOPS ENGINEER NEED TO CREATE ACCES FOR NEW DEVELOPER:
+DEVOPS ENGINEER NEED TO CREATE THE CENTRALIZED REPO:
+
+ALIAS FOR COMMANDS
+------------------
+Frequently used command make it as short cut.
+# git config --global alias.<any_ane> "log --oneline"  ------> it is used to set a alias name instead of giving "log --oneline" i can give simple "alias_name"
+ UNSET THE ALIAS COMMAND:
+DELETe the previous github credentials also in pc.
+# git config --global --unset alias.<alias_name> or user.name or user.email      ------> it is used to remove the alias name
+
+TO CHECK THE ONE DEVELOPER(AUTHOR) COMMITS:
+------------------------------------------
+# git log --author=authorname
+
+
+STASH 
+------
+this is command help you to (temorarily  but saftly) store  your uncommited local changes 
+(i.e only stagging area files)
+# git stash list                                       ------> this command will show the list of stash files
+# git stash save "<stash_name">                        ------> it is used to save the files in stash memory from stagging area
+# git stash pop                                        ------> it is used to move the files from stash memory to stagging area only last updated file(like cut and paste)
+# git stash pop stash@{number}		                   ------> it is used to move the files from stash memory to stagging area(note--> that particular stash id file only)
+# git stash apply 		                               ------> it is used to move the files from stash memory to stagging area only last updated file(like copy and paste)
+# git stash show -p stash@{number}                     ------> it will show the list of files available in stash memory id 
+# git stash drop                                       ------> it is used to delete the stash file(note--> only updated  file)
+# git stash drop stash@{number}                        ------> it is used to delete the stash file but only particular stash_id
+
+TAGS
+----------
+Tag operation allows giving meaningful names o a specific version in the repository.
+
+# git tag                                              ------> it is used to display list of tag names
+# git tag <tag_name>                                   ------> it is used to set a tag name for commits
+# git show <tag_name>                                  ------> it will display files from under tag_name
+# git push origin <tag_name>                           ------> it is used to send the tag names into git repository(note--> by defaulty master branch)
+# git push origin <branch_name> <tag_name>             ------> it is used to send the tag names into git repository(note--> that particular branch)
+# git tag -d <tag_name>                                ------> it is used to delete the tag name in local repository
+# git push origin -d <tag_name>                        ------> it is used to delete the tag name in remote repository
+# git push origin -d <branch_name>                     ------> it is used to delete the branch in remote repository
+# git tag <tag_name> <commit_id>                       ------> it is used to create tag in that particular commit_id
+
+OTHER COMMANDS:
+--------------
+
+# git log --decorate --oneline                         ------> it displays branch's level information i.e branch level codes. {
+
+# git reset head <file_name>                           ------> it is used to fetch the files from stagging area to workspace area.
+# git reset --mixed <commit_id>                        ------> it is used to fetch the files from local repository to workspace area 
+                                                               (note--> take the before commit_id i.e 2nd commit_id from starting onwords)
+# git clone <repository url>                           ------> it is used to fetch the file from remote repository to our local machine i.e workspace area
+# git push                                             ------> it is used to send the files from local repository to remote repository 
+# git merge --abort   ------> it is used to come out from merge conflict issue(i.e master|merging branch)
+# conflict file(issue)                                 ------> two different branchs with same file_name and different information(we are trying to merging than it will show a 
+                                                               error like conflict file issue(by using manual merging we can solve this not in automated))
+# git commit -am <commit_message>                      ------> it will send the files from workspace area to local repository(note--> only for modifyed or reset files)
+# git branch -r                                        ------> it is used to show the list of remote branches
+# git branch                                           ------> it is used to show the list of local repository branchs
+# git branch -a                                        ------> it is used to show the list of remote branches and local repository branchs also
+# git commit --amend -m "<new_commit_msg>"             ------> it is used to change the committed messages name(note--> i.e only latest commit)
+# mv <existingting_file_name> <new_file_name>          ------> it is used to change the existing file name to new file name
+# git branch -m <existingting_branch_name> <new_branch_name>  -----> it is used to change the existing branch name to new branch name
+# git squash
+
+
+
+
+
+Web server: serves content to the web using http protocol.
+
+Application server: hosts and exposes business logic and processes.
+
+I think that the main point is that the web server exposes everything through the http protocol,
+ while the application server is not restricted to it.
+
+That said, in many scenarios you will find that the web server is being 
+used to create the front-end of the application server, that is, it exposes a set 
+of web pages that allow the user to interact with the business rules found into the application server.
+
+
+
+git merge apply all unique commits from branch A into branch B in one commit with final result
+git merge doesn’t rewrite commit history, just adds one new commit
+git rebase gets all unique commits from both branches and applies them one by one
+git rebase rewrites commit history but doesn’t create extra commit for merging
+
